@@ -3,18 +3,14 @@ import React, { Dispatch, FC, SetStateAction } from 'react';
 import { Formik, Form, FormikValues, FormikHelpers } from 'formik';
 import { useRouter } from 'next/router';
 import Input from 'components/Input';
-import postRequest from '@/utilities/postRequest';
-import transformValidationErrors from '@/utilities/transformValidationErrors';
 import FormWrapper from '@/components/FormWrapper';
 import FormButton from '@/components/FormButton';
 
 import { useDispatch, useSelector } from 'react-redux';
 import {
-  initialState,
   registerCheckout,
   removeCheckout,
 } from '@/slices/CheckoutSlice';
-import { setNotification } from 'slices/NotificationSlice';
 interface FormValues {
   address: string;
   phoneNumber: string;
