@@ -5,7 +5,6 @@ import NavLink from '../NavLink';
 import { useDispatch, useSelector } from 'react-redux';
 // import { logout } from '../../slices/AuthSlice';
 // import Basket from '../Basket';
-import SearchBar from '../SearchBar';
 import dynamic from 'next/dynamic';
 const Basket = dynamic(() => import('../Basket'), { ssr: false });
 
