@@ -34,8 +34,6 @@ const Navbar: FC = () => {
         ''
       )}
       <nav className=" mx-auto p-7 w-screen border-b-4 bg-slate-700 border-neutral-400 flex flex-col justify-center ">
-        <SearchBar />
-
         <div className="flex items-center justify-between ">
           <p className="text-2xl text-red-400">SanityWatch</p>
 
@@ -49,7 +47,6 @@ const Navbar: FC = () => {
               </a>
             </Link>
           </ul>
-
           <button
             onClick={setMobileNavState}
             className="text-red-700 text-lg hover:text-neutral-400 lg:hidden block"
