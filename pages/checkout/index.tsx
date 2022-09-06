@@ -1,4 +1,4 @@
-import { SyntheticEvent, useState } from 'react';
+import { SyntheticEvent, useId, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import ContactInformationPage from '../../components/ContactInformation';
 import { Checkout, initialState } from 'slices/CheckoutSlice';
@@ -9,10 +9,15 @@ import {
   PaymentMethod,
   registerPaymentMethod,
 } from 'slices/PaymentMethodSlice';
-import PaymentMethodForm from '@/components/PaymentMethodForm';
 import PlaceOrder from '@/components/PlaceOrder';
 import { PayPalScriptProvider } from '@paypal/react-paypal-js';
+
 const Checkout = () => {
+  const ID1 = useId();
+
+  const ID2 = useId();
+
+  const ID3 = useId();
   const steps = Array.from(Array(3).keys());
   const [currentStep, setCurrentStep] = useState<number>(0);
   const checkout = useSelector(
@@ -30,8 +35,11 @@ const Checkout = () => {
   };
 
   const componentSteps = [
-    <ContactInformationPage incrementCurrentStep={incrementCurrentStep} />,
-    <div className="flex flex-col items-start p-10 space-y-8">
+    <ContactInformationPage
+      key={ID1}
+      incrementCurrentStep={incrementCurrentStep}
+    />,
+    <div key={ID2} className="flex flex-col items-start p-10 space-y-8">
       <h1 className="text-3xl font-bold">Shopping Cart</h1>
       {basket.map(product => (
         <ProductBasketCard key={product._id} {...product} />
@@ -44,6 +52,7 @@ const Checkout = () => {
       </button>
     </div>,
     <PayPalScriptProvider
+      key={ID3}
       //@ts-ignore
       options={{ 'client-id': process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID }}
     >
